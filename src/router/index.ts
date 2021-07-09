@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Sum from '../views/Sum.vue'
+import Calculation from '../views/Calculation.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: "/sum"
+    redirect: "/calculation"
   },
   {
-    path: '/sum',
-    name: 'Sum',
-    component: Sum
+    path: '/calculation',
+    name: 'Calculation',
+    component: Calculation
   }
 ]
 

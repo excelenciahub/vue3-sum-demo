@@ -47,30 +47,7 @@
               "
             />
           </div>
-
-          <div class="col-span-6 sm:col-span-4">
-            <label for="total" class="block text-sm font-medium text-gray-700"
-              >Total</label
-            >
-            <input
-              type="text"
-              name="total"
-              id="total"
-              :value="total"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
-              disabled
-            />
-          </div>
+          <Total />
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
           <button
@@ -103,16 +80,23 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 
+// components
+import Total from "./Total.vue";
+
+// store
+import store from "@/store/index";
+
 @Options({
-  components: {},
+  components: {
+    Total,
+  },
 })
 export default class Sum extends Vue {
   public a = 0;
   public b = 0;
-  public total = 0;
 
   public sum(): void {
-    this.total = Number(this.a) + Number(this.b);
+    store.dispatch("updateCount", Number(this.a) + Number(this.b));
   }
 }
 </script>
